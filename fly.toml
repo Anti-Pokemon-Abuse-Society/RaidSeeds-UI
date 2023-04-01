@@ -1,7 +1,6 @@
 app = "raidseeds-ui-f1d0"
 kill_signal = "SIGINT"
 kill_timeout = 5
-processes = [ ]
 primary_region = "ord"
 
 [experimental]
