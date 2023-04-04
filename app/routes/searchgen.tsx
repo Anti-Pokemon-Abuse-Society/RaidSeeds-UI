@@ -4,10 +4,9 @@ import { onlyUnique } from "~/helpers/arrays/onlyUnique";
 import { GameVersion } from "~/poke/RawRaid";
 import { useLoaderData } from "@remix-run/react";
 import { PokeName } from "~/poke/PokeName";
-import { PokeDexCheater } from "~/poke/Cheaters/PokeDexCheater";
 
 function orderByName(list: number[]) {
-  return list.sort((a,b) => PokeName[PokeDexCheater.GetInternal9(a)].localeCompare(PokeName[PokeDexCheater.GetInternal9(b)]))
+  return list.sort((a,b) => PokeName[a].localeCompare(PokeName[b]))
 }
 
 export async function loader({ request }: LoaderArgs) {

@@ -4,7 +4,6 @@ import { PokeType } from "~/poke/PokeType";
 import { PokeNature } from "~/poke/PokeNature";
 import { PokeAbility } from "~/poke/PokeAbility";
 import { PokeName } from "~/poke/PokeName";
-import { PokeDexCheater } from "~/poke/Cheaters/PokeDexCheater";
 import { useCallback } from "react";
 import copy from 'copy-to-clipboard';
 
@@ -78,7 +77,7 @@ export function SearchResultsTable({ raids, ready }: Props) {
                       </CopyComponent>
                     </td>
                     <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-200 sm:pl-6">
-                      {PokeName[PokeDexCheater.GetInternal9(raid.Species)]}
+                      {PokeName[raid.Species]}
                     </td>
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-200">
                       {PokeType[raid.TeraType]}

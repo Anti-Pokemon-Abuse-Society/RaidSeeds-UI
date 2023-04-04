@@ -1,5 +1,4 @@
 import { PokeName } from "~/poke/PokeName";
-import { PokeDexCheater } from "~/poke/Cheaters/PokeDexCheater";
 import { SearchSelect } from "~/components/SearchComponents";
 import { GameVersion } from "~/poke/RawRaid";
 import { useState } from "react";
@@ -32,7 +31,7 @@ export default function SearchShiny6Page() {
       <SearchSelect onChange={setSpecies} value={species}>
         {filteredSpecies.map(species => (
           <option value={species} key={species}>
-            {PokeName[PokeDexCheater.GetInternal9(species)]}
+            {PokeName[species]}
           </option>
         ))}
       </SearchSelect>
