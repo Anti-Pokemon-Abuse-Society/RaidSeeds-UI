@@ -22,7 +22,7 @@ export const CopyComponent = ({children, str, cls}: {children: any, str: string,
 }
 
 export function SearchResultsTable({ raids, ready }: SearchResultsProps) {
-  const [showCards, setShowCards] = useState(false);
+  const [showCards, setShowCards] = useState(true);
   return (
     <div className="">
       <div className="sm:flex sm:items-center">
