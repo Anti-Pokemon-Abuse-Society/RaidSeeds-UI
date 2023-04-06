@@ -22,7 +22,7 @@ export interface RawRaid {
   SPE: number;
   Ability: number;
   Nature: number;
-  Gender: number;
+  Gender: string;
   Height: number;
   Weight: number;
   Scale: number;
@@ -46,7 +46,7 @@ export const fromRawRaid = ([game, seed, shiny, stars, species, form, level, ter
   SPE: parseInt(spe),
   Ability: parseInt(ability),
   Nature: parseInt(nature),
-  Gender: parseInt(gender),
+  Gender: gender,
   Height: parseInt(height),
   Weight: parseInt(weight),
   Scale: parseInt(scale)
