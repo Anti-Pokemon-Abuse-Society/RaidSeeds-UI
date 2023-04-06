@@ -5,6 +5,7 @@ export enum GameVersion {
 }
 
 export interface RawRaid {
+  id: number;
   Game: GameVersion;
   Seed: string;
   Shiny: boolean;
@@ -27,7 +28,8 @@ export interface RawRaid {
   Scale: number;
 }
 
-export const fromRawRaid = ([game, seed, shiny, stars, species, form, level, teratype, hp, atk, def, spa, spd, spe, ability, nature, gender, height, weight, scale]: any): RawRaid => ({
+export const fromRawRaid = ([game, seed, shiny, stars, species, form, level, teratype, hp, atk, def, spa, spd, spe, ability, nature, gender, height, weight, scale]: any, i: number): RawRaid => ({
+  id: i,
   Game: game === GameVersion.Scarlet ? GameVersion.Scarlet : GameVersion.Violet,
   Seed: seed,
   Shiny: shiny === 'True',

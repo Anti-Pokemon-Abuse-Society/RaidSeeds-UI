@@ -1,6 +1,6 @@
 import type { RawRaid } from "~/poke/RawRaid";
 import { GameVersion } from "~/poke/RawRaid";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { RaidSeedDB } from "~/api/RaidSeedDB";
 import { PokeType } from "~/poke/PokeType";
 import { PokeNature } from "~/poke/PokeNature";
@@ -25,9 +25,7 @@ export function useRaidsDB(species: number, game: GameVersion, tera: string, nat
 
   const results = useMemo(() => {
     if (!ready || !raids) return [];
-    const existingSeeds: string[] = [];
     return raids.filter(raid => {
-      if (existingSeeds.includes(raid.Seed)) return false;
       if (game !== GameVersion.Both) {
         if (raid.Game !== game) return false;
       }
@@ -39,7 +37,6 @@ export function useRaidsDB(species: number, game: GameVersion, tera: string, nat
       if (nature !== "any") {
         if (PokeNature[raid.Nature] !== nature) return false;
       }
-      existingSeeds.push(raid.Seed);
       return true;
     });
   }, [game, nature, ready, species, tera]);
