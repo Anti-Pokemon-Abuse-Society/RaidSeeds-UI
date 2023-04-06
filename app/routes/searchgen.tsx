@@ -1,4 +1,4 @@
-import { json, LoaderArgs } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { RaidSeedDB } from "~/api/RaidSeedDB";
 import { onlyUnique } from "~/helpers/arrays/onlyUnique";
 import { GameVersion } from "~/poke/RawRaid";
@@ -9,7 +9,9 @@ function orderByName(list: number[]) {
   return list.sort((a,b) => PokeName[a].localeCompare(PokeName[b]))
 }
 
-export async function loader({ request }: LoaderArgs) {
+export async function loader() {
+  if (!process.env.SHOW_SEARCH_GEN) return json({ raids: [], scarletExclusives: [], violetExclusives: [], allSpecies: [] })
+
   const raids = await RaidSeedDB.GetAll();
 
   const scarletExclusives = orderByName(raids.filter(r => r.Game === GameVersion.Scarlet).map(r => r.Species).filter(onlyUnique));
